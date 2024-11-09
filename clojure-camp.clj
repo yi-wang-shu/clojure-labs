@@ -15,8 +15,8 @@
        :a-string
        :something-else))))))
 
-;; Solution:
-(defn process-value
+;; Solution: ;; info de cond: https://www.gnu.org/software/emacs/manual/html_node/elisp/Conditionals.html
+(defn refract-process-value
   [value]
   (cond (string? value) :a-string
         (not (number? value)) :something-else
@@ -24,6 +24,7 @@
         (> value 10) :pretty-big
         (< value 0) :negative
         :else :small-number))
+
 
 ;; Write a function to determine if some 3 side lengths are sufficient to make
 ;; a triangle.
