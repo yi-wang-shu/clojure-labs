@@ -16,14 +16,14 @@
        :something-else))))))
 
 ;; Solution:
-(defn refrac-process-value [value]
-  (cond
-    (> value 10) :pretty-big
-    (neg? value) :negative
-    (zero? value) :zero
-    (number? value) :small-number
-    (string? value) :a-string
-    :else :something-else))
+(defn process-value
+  [value]
+  (cond (string? value) :a-string
+        (not (number? value)) :something-else
+        (zero? value) :zero
+        (> value 10) :pretty-big
+        (< value 0) :negative
+        :else :small-number))
 
 ;; Write a function to determine if some 3 side lengths are sufficient to make
 ;; a triangle.
